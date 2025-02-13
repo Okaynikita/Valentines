@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💖</title>
+    
+</head>
+<style>
+/* Valentine’s Theme - Soft Romantic Colors */
+body {
+    font-family: 'times new roman', sans-serif;
+    text-align: center;
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100vw; /* Ensures it fully covers the width */
+    min-height: 100vh; /* Ensures it fully covers the height */
+    width: auto;
+    height: auto;
+	opacity:0.2;
+    transform: translate(-50%, -50%); /* Centers the video perfectly */
+    object-fit: cover; /* Ensures no empty space */
+    z-index: -1;
+}
+
+/* Floating Hearts */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Animated Floating Hearts */
+.heart {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    color: pink;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav button {
+    padding: 10px 15px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background-color: pink;
+    color: black;
+}
+
+/* Sections */
+.section {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section.active {
+    display: flex;
+}
+
+/* Buttons */
+.yes-btn {
+    padding: 15px 25px;
+    font-size: 18px;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.yes-btn:hover {
+    background-color: pink;
+    color: black;
+}
+
+/* Countdown Timer */
+#timer {
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Love Note */
+#loveLetter {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+.heart-click {
+    position: absolute;
+    font-size: 20px;
+    animation: explode 1s linear;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+#loveLetter {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4d6d;
+    
+}
+
+@keyframes glow {
+    from { text-shadow: 0px 0px 5px #ff4d6d, 0px 0px 10px #ff99ac; }
+    to { text-shadow: 0px 0px 15px #ff4d6d, 0px 0px 30px #ff99ac; }
+}
+/* Photo Wall */
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.photo-gallery img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Story Video */
+.love-story-video {
+    width: 60vw;  /* Set width to 60% of screen */
+    max-height: 100px;  /* Set a fixed height */
+    display: block;
+    margin: 20px auto;  /* Center it */
+    border-radius: 15px;  /* Smooth edges */
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.6);
+}
+/* Love Letter Box */
+.love-letter-box {
+    width: 60vw;  /* Makes the box a nice readable size */
+    max-width: 600px;  /* Ensures it doesn’t get too wide */
+    background: rgba(255, 255, 255, 0.1);  /* Soft transparent effect */
+    padding: 20px;
+    border-radius: 15px;  /* Rounded edges for a smooth look */
+    box-shadow: 5px 5px 15px rgba(255, 0, 0, 0.5);  /* Romantic glow */
+    border: 2px solid rgba(255, 0, 0, 0.5);  /* Red border to make it pop */
+    margin: 20px auto;
+    text-align: center;  /* Centers the text inside */
+}
+.countdown-box{
+    width: 60vw;  /* Makes the box a nice readable size */
+    max-width: 600px;  /* Ensures it doesn’t get too wide */
+    background: rgba(255, 255, 255, 0.1);  /* Soft transparent effect */
+    padding: 20px;
+    border-radius: 15px;  /* Rounded edges for a smooth look */
+    box-shadow: 5px 5px 15px rgba(255, 0, 0, 0.5);  /* Romantic glow */
+    border: 2px solid rgba(255, 0, 0, 0.5);  /* Red border to make it pop */
+    margin: 20px auto;
+    text-align: center;  /* Centers the text inside */
+}
+
+</style>
+<body>
+    <!-- Video Background -->
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="valentines.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Floating Hearts Effect -->
+    <div class="background" id="background"></div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>Happy Valentine's Day 💕</h1>
+        <nav>
+            <button onclick="showSection('home')">Home</button>
+            <button onclick="showSection('countdown')"> Date </button>
+            <button onclick="showSection('playlist')">For you</button>
+            <button onclick="showSection('love-note')">A note</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <h2> Happy valentines day, My Love! 💖</h2>
+            <div class="buttons">
+			 <button onclick="startSurprise()" class="yes-btn"> Click here </button>
+             
+            </div>
+        </section>
+		
+
+        <!-- Countdown Timer Section -->
+        <section id="countdown" class="section">
+		<div class="countdown-box">
+            <h2> A little (virtual) lunch date </h2>
+			<h2>14 February 2 pm </h2>
+            <div id="timer"></div>
+			</div>
+        </section>
+
+        <!-- Spotify Playlist Section -->
+        <section id="playlist" class="section">
+            <h2> The songs that remind me of you, of us. </h2>
+            
+		<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7mYuw3QpjROcUQsq4Y0cHn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+			
+        </section>
+
+        <!-- Love Note Section -->
+		
+        <section id="love-note" class="section">
+		<div class="love-letter-box">
+            <h2> A Special Note for You 💌</h2>
+            <p id="loveLetter"></p>
+			</div>
+        </section>
+		
+		
+	<!-- Photo Wall & Story Video Section -->
+
+        <section id="photo-wall" class="section">
+        <h2> Wall of our memories ❤️</h2>
+    
+        <div class="photo-gallery">
+        <img src="photo1.jpg" alt="Memory 1">
+        <img src="photo2.jpg" alt="Memory 2">
+        <img src="photo3.jpg" alt="Memory 3">
+        <img src="photo4.jpg" alt="Memory 4">
+		<img src="photo5.jpg" alt="Memory 1">
+        <img src="photo6.jpg" alt="Memory 2">
+        <img src="photo7.jpg" alt="Memory 3">
+        <img src="photo8.jpg" alt="Memory 4">
+		<img src="photo9.jpg" alt="Memory 3">
+        
+        </div>
+
+        <h2> You and I <3 </h2>
+        <video controls id="love-story-video" >
+        <source src="valentine.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        </section>
+        </main>
+
+ <script>
+	// Function to Switch Sections
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.getElementById(sectionId).classList.add('active');
+}
+
+// Countdown Timer for Valentine’s Day (Feb 14, 2 PM)
+function startCountdown() {
+    let targetDate = new Date("February 14, 2025 14:00:00").getTime();
+
+    function updateTimer() {
+        let now = new Date().getTime();
+        let diff = targetDate - now;
+
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let minutes = Math.floor((diff / (1000 * 60)) % 60);
+        let seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (diff <= 0) {
+            document.getElementById('timer').innerHTML = "Your Surprise is Ready!";
+        } else {
+            setTimeout(updateTimer, 1000);
+        }
+    }
+
+    updateTimer();
+}
+
+startCountdown();
+
+// Love Note Typing Effect
+let letterText = "Hi my love. Happy valentines day. Although, a day will never be enough to express the love I have for you, I still wanted to make this one a little special. To tell you how grateful I am for you and for the love you have given me. Since the day you have entered into my life, everything has changed. I stress less, smile more, think less and act more. I will never be able to fully express what you are to me but I hope this small gesture gives you a gist of it today. You are my everything and my whole world revolves around your existence. I love you to the moon and back my love. Cannot wait to do life with you, one step at a time! - Yours, Nikita. ";
+let i = 0;
+function typeLetter() {
+    if (i < letterText.length) {
+        document.getElementById("loveLetter").innerHTML += letterText.charAt(i);
+        i++;
+        setTimeout(typeLetter, 80);
+    }
+}
+typeLetter();
+
+// Floating Hearts Effect
+function createHearts() {
+    const background = document.getElementById('background');
+
+    setInterval(() => {
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        background.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }, 500);
+}
+
+createHearts();
+
+// Heart Explosion Effect on Click
+document.addEventListener('click', function (e) {
+    for (let i = 0; i < 5; i++) {
+        let heart = document.createElement('div');
+        heart.classList.add('heart-click');
+        heart.innerHTML = '❤️';
+        heart.style.left = (e.clientX + Math.random() * 30 - 15) + 'px';
+        heart.style.top = (e.clientY + Math.random() * 30 - 15) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 1000);
+    }
+});
+// More Floating Hearts with Smoother Motion
+function createHearts() {
+    const background = document.getElementById('background');
+
+    setInterval(() => {
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 5 + 3 + 's';
+        background.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 8000);
+    }, 400);
+}
+
+createHearts();
+// Function to Transition to Photo Wall & Start Video
+function startSurprise() {
+    // Switch to the photo wall section
+    showSection('photo-wall');
+
+    // Create a heart explosion effect
+    for (let i = 0; i < 10; i++) {
+        let heart = document.createElement('div');
+        heart.classList.add('heart-click');
+        heart.innerHTML = '❤️';
+		heart.style.left = Math.random() * 95 + 'vw'; // Restrict hearts to max 95vw
+        heart.style.top = Math.random() * 100 + 'vh';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1500);
+    }
+
+    // Change background music (optional)
+    let bgMusic = document.getElementById("bg-music");
+    bgMusic.src = "music/memories.mp3"; // Replace with a romantic song
+    bgMusic.play();
+
+    // Auto-play the story video
+    setTimeout(() => {
+        document.getElementById("love-story-video").play();
+    }, 1000);
+}
+// Auto-plays video when entering the section
+document.getElementById('photo-wall').addEventListener('mouseenter', function() {
+    document.getElementById("love-story-video").play();
+});
+
+
+	</script>
+
+</body>
+</html>
